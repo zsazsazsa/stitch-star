@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react"
 import "./Projects.css"
 import { getProjectsByUserId } from "../Services/ProjectService"
+import { useNavigate } from "react-router-dom"
 
 export const Projects = ({ currentUser }) => {
+
+    const navigate = useNavigate()
 
     const [projects, setProjects] = useState([])
 
@@ -17,6 +20,12 @@ export const Projects = ({ currentUser }) => {
     }
 
     return (
+        <>
+        <div className="button-container">
+            <button className="new-project-btn" onClick={()=>{
+                navigate("/projects/new")
+            }}>new project</button>
+        </div>
         <div className="projects-list">
             {projects.map(project => {
                 return (
@@ -28,5 +37,6 @@ export const Projects = ({ currentUser }) => {
                 )
             })}
         </div>
+        </>
     )
 }
