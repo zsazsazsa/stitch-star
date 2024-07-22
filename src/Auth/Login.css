@@ -40,3 +40,8 @@
     border-radius: 100px;
     padding-left: 10px;
   }
+
+  .form-login {
+    text-align: center;
+    margin-left: -200px;
+  }

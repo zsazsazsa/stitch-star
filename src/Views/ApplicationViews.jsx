@@ -30,7 +30,7 @@ export const ApplicationViews = () => {
                     <Route path="edit" element={<>EDIT</>} />
                 </Route>
                 <Route path="favorites" element={<Favorites />} />
-                <Route path="users" element={<Users />} />
+                <Route path="users" element={<Users currentUser={currentUser}/>} />
                 <Route path="profile" element={<Profile />} />
             </Route>
         </Routes>
