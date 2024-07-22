@@ -28,3 +28,16 @@ body {
 .project-completion {
     text-align: end;
 }
+
+.new-project-btn {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 2px solid #89CC04;
+    border-radius: 100px;
+    background-color: black;
+    color: #89CC04;
+}
+
+.button-container {
+    text-align: center;
+}
