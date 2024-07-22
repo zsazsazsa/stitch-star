@@ -19,7 +19,7 @@ body {
     padding: 25px;
     margin: 10px 0;
     transition: font-size 0.2s ease-in-out;
-    width: 80%;
+    width: 95%;
 }
 
 .project:hover {
@@ -35,7 +35,7 @@ body {
     text-align: end;
 }
 
-.new-project-btn, .edit-btn {
+.new-project-btn, .edit-btn, .delete-btn {
     margin-bottom: 15px;
     padding: 10px;
     border: 2px solid #89CC04;
@@ -44,6 +44,19 @@ body {
     color: #89CC04;
 }
 
+.new-project-btn:hover, .edit-btn:hover, .delete-btn:hover {
+    border: 2px solid black;
+    color: black;
+    background-color: #89CC04;
+}
+
 .button-container {
     text-align: center;
+}
+
+.project-btns {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

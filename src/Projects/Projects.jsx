@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import "./Projects.css"
-import { getProjectsByUserId } from "../Services/ProjectService"
+import { deleteProject, getProjectsByUserId } from "../Services/ProjectService"
 import { useNavigate } from "react-router-dom"
 
 export const Projects = ({ currentUser }) => {
@@ -9,14 +9,26 @@ export const Projects = ({ currentUser }) => {
 
     const [projects, setProjects] = useState([])
 
-    useEffect(() => {
+    const render = () => {
         getProjectsByUserId(currentUser.id).then((data) => {
             setProjects(data)
         })
+    }
+
+    useEffect(() => {
+       render()
     }, [currentUser])
 
     const calculateSectionProgress = (rowsCompleted, totalRows) => {
         return Math.floor((rowsCompleted/totalRows)*100)
+    }
+
+    const handleDelete = (e) => {
+        const projectToDelete = projects.find(project => project.id === parseInt(e.target.id))
+        deleteProject(projectToDelete.id).then(() => {
+            render()
+        })
+        
     }
 
     return (
@@ -40,6 +52,7 @@ export const Projects = ({ currentUser }) => {
                             <button className="edit-btn" onClick={() => {
                                 navigate("/projects/edit")
                             }}>edit</button>
+                            <button id={project.id}className="delete-btn" onClick={handleDelete}>delete</button>
                         </div>
                     </div>
                     </>
