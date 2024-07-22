@@ -27,6 +27,7 @@ export const ApplicationViews = () => {
                 <Route path="projects">
                     <Route index element={<Projects currentUser={currentUser}/>} />
                     <Route path="new" element={<>NEW</>} />
+                    <Route path="edit" element={<>EDIT</>} />
                 </Route>
                 <Route path="favorites" element={<Favorites />} />
                 <Route path="users" element={<Users />} />
