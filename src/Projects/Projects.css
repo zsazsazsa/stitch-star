@@ -1,0 +1,30 @@
+body {
+    margin-left: 200px;
+}
+
+.projects-list {
+    border: 1px solid black;
+    border-radius: 100px;
+    padding: 50px;
+}
+
+.project {
+    border: 1px solid black;
+    border-radius: 100px;
+    padding: 25px;
+    margin: 10px 0;
+    transition: font-size 0.2s ease-in-out;
+}
+
+.project:hover {
+    font-size: 1.5em;
+}
+
+.project-name {
+    margin-top: 25px;
+    font-size: 1.5em;
+}
+
+.project-completion {
+    text-align: end;
+}

@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    height: 100vh; /* Full height */
+    width: 150px; /* Set a width for the navbar */
+    position: fixed; /* Fix the navbar to the left side */
+    top: -16px;
+    left: 0;
+    background-color: black; /* Background color */
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.navbar-item {
+    list-style-type: none;
+    padding: 8px 16px;
+    letter-spacing: 4px;
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: #89CC04;
+    display: block;
+}
+
+.navbar-link:hover {
+    background-color: #575757;
+}
