@@ -29,11 +29,20 @@ export const Projects = ({ currentUser }) => {
         <div className="projects-list">
             {projects.map(project => {
                 return (
-                    <div className="project" key={project.id}>
-                        <div className="project-number">project #{project.id}</div>
-                        <div className="project-name">{project.name}</div>
-                        <div className="project-completion">{calculateSectionProgress(project.sectionProgress[0].rowsCompleted, project.sectionProgress[0].totalRows)}%</div>
+                    <>
+                    <div className="project-container" key={project.id}>
+                        <div className="project">
+                            <div className="project-number">project #{project.id}</div>
+                            <div className="project-name">{project.name}</div>
+                            <div className="project-completion">{calculateSectionProgress(project.sectionProgress[0].rowsCompleted, project.sectionProgress[0].totalRows)}%</div>
+                        </div>
+                        <div className="project-btns">
+                            <button className="edit-btn" onClick={() => {
+                                navigate("/projects/edit")
+                            }}>edit</button>
+                        </div>
                     </div>
+                    </>
                 )
             })}
         </div>

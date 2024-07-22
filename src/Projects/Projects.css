@@ -8,12 +8,18 @@ body {
     padding: 50px;
 }
 
+.project-container {
+    display: flex;
+    flex-direction: row;
+}
+
 .project {
     border: 1px solid black;
     border-radius: 100px;
     padding: 25px;
     margin: 10px 0;
     transition: font-size 0.2s ease-in-out;
+    width: 80%;
 }
 
 .project:hover {
@@ -29,7 +35,7 @@ body {
     text-align: end;
 }
 
-.new-project-btn {
+.new-project-btn, .edit-btn {
     margin-bottom: 15px;
     padding: 10px;
     border: 2px solid #89CC04;
