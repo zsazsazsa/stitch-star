@@ -1,4 +1,4 @@
-.profile-container {
+.profile-container, .profile-edit-container {
     border: 1px solid black;
     border-radius: 100px;
     padding: 25px;
@@ -6,12 +6,29 @@
     margin-top: 200px;
 }
 
-.edit-btn {
+.edit-btn, .save-btn {
     margin-top: 15px;
     text-align: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 2px solid #89CC04;
+    border-radius: 100px;
+    background-color: black;
+    color: #89CC04;
 }
+
+.edit-btn:hover, .save-btn:hover {
+    border: 2px solid black;
+    color: black;
+    background-color: #89CC04;
+}
+
 
 .btn-container {
     display: flex;
     justify-content: center;
+}
+
+input {
+    margin-left: 15px;
 }
