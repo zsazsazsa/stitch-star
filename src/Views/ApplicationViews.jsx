@@ -5,6 +5,7 @@ import { Projects } from "../Projects/Projects"
 import { Favorites } from "../Favorites/Favorites"
 import { Users } from "../Users/Users"
 import { Profile } from "../Profile/Profile"
+import { EditProfile } from "../Profile/EditProfile"
 
 export const ApplicationViews = () => {
 
@@ -33,7 +34,7 @@ export const ApplicationViews = () => {
                 <Route path="users" element={<Users currentUser={currentUser}/>} />
                 <Route path="profile">
                     <Route index element={<Profile currentUser={currentUser}/>} />
-                    <Route path="edit" element={<>EDIT</>} />
+                    <Route path="edit" element={<EditProfile currentUser={currentUser}/>} />
                 </Route>
             </Route>
         </Routes>
