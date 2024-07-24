@@ -6,6 +6,10 @@ import { Favorites } from "../Favorites/Favorites"
 import { Users } from "../Users/Users"
 import { Profile } from "../Profile/Profile"
 import { EditProfile } from "../Profile/EditProfile"
+import { NewProject } from "../Projects/NewProject"
+import { ProjectView } from "../Projects/ProjectView"
+import { EditProject } from "../Projects/EditProject"
+import { NewSection } from "../Sections/NewSection"
 
 export const ApplicationViews = () => {
 
@@ -27,8 +31,12 @@ export const ApplicationViews = () => {
             }>
                 <Route path="projects">
                     <Route index element={<Projects currentUser={currentUser}/>} />
-                    <Route path="new" element={<>NEW</>} />
-                    <Route path="edit" element={<>EDIT</>} />
+                    <Route path=":projectId" element={<ProjectView currentUser={currentUser}/>} />
+                    <Route path="new">
+                        <Route index element={<NewProject currentUser={currentUser}/>} />
+                        <Route path="newSection" element={<NewSection />} />
+                    </Route>
+                    <Route path=":projectId/edit" element={<EditProject />} />
                 </Route>
                 <Route path="favorites" element={<Favorites />} />
                 <Route path="users" element={<Users currentUser={currentUser}/>} />

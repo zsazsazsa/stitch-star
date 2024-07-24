@@ -2,10 +2,21 @@ body {
     margin-left: 200px;
 }
 
-.projects-list {
+.project-link {
+    text-decoration: none;
+    color: inherit;
+    width: 95%;
+}
+
+.projects-list, .form-container, .section-form-container, .project-view-container, .section-container {
     border: 1px solid black;
     border-radius: 100px;
     padding: 50px;
+    margin-bottom: 15px;
+}
+
+.section-container {
+    margin-top: 15px;
 }
 
 .project-container {
@@ -19,7 +30,6 @@ body {
     padding: 25px;
     margin: 10px 0;
     transition: font-size 0.2s ease-in-out;
-    width: 95%;
 }
 
 .project:hover {
@@ -35,7 +45,7 @@ body {
     text-align: end;
 }
 
-.new-project-btn, .edit-btn, .delete-btn {
+.new-project-btn, .edit-btn, .delete-btn, .row-btn, .section-add-btn {
     margin-bottom: 15px;
     padding: 10px;
     border: 2px solid #89CC04;
@@ -44,7 +54,7 @@ body {
     color: #89CC04;
 }
 
-.new-project-btn:hover, .edit-btn:hover, .delete-btn:hover {
+.new-project-btn:hover, .edit-btn:hover, .delete-btn:hover, .row-btn:hover, .section-add-btn:hover {
     border: 2px solid black;
     color: black;
     background-color: #89CC04;
@@ -59,4 +69,18 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.project-header, .section-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+a {
+    color: black;
+}
+
+.row-btn {
+    margin-top: 15px;
 }
