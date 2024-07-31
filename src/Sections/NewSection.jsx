@@ -18,7 +18,7 @@ export const NewSection = ({newProject}) => {
     }, [])
 
     useEffect(() => {
-        const foundProject = projects.find(project => project.name === newProject.name)
+        const foundProject = projects[projects.length - 1]
         setProjectToUpdate(foundProject)
     }, [newProject, projects])
 
