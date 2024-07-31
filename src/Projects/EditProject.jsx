@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { deleteProject, getAllProjects, getProjectToUpdate, updateProject } from "../Services/ProjectService"
 import { deleteSection, getSectionByProjectId, updateSection } from "../Services/SectionService"
 import { CategorySelector } from "../Categories/CategorySelector"
-import { NewSection } from "../Sections/NewSection"
+import { NewSectionEdit } from "../Sections/NewSectionEdit"
 
 export const EditProject = () => {
 
@@ -165,7 +165,7 @@ export const EditProject = () => {
             }}>Add Section</button>
         </div>
         {addNewSection && (
-           <NewSection newProject={project} onSectionAdded={() => setTriggerReRender(!triggerReRender)} />
+           <NewSectionEdit newProject={project} onSectionAdded={() => setTriggerReRender(!triggerReRender)} />
         )}
         </>
     )
