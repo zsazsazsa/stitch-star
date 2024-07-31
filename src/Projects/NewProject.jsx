@@ -2,7 +2,7 @@ import {  useState } from "react"
 import { CategorySelector } from "../Categories/CategorySelector"
 import "./Projects.css"
 import {  saveProject } from "../Services/ProjectService"
-import { NewSection } from "../Sections/NewSection"
+import { NewSectionNew } from "../Sections/NewSectionNew"
 
 
 export const NewProject = ({currentUser}) => {
@@ -72,9 +72,9 @@ export const NewProject = ({currentUser}) => {
                 {!addNewSection && (<button className="save-btn" onClick={handleSave}>Add Section</button>)}
             </fieldset>
         </div>
-
+        
         {addNewSection && (
-           <NewSection newProject={newProject}/>
+           <NewSectionNew newProject={newProject}/>
         )}
         </>
     )
