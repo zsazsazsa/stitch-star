@@ -12,6 +12,12 @@ export const saveSection = (sectionObj) => {
     })
 }
 
+export const deleteSection = (sectionId) => {
+    return fetch(`http://localhost:8088/sectionProgress/${sectionId}`, {
+        method: "DELETE"
+    })
+}
+
 export const updateSection = (sectionObj) => {
     return fetch(`http://localhost:8088/sectionProgress/${sectionObj.id}`, {
         method: "PUT",

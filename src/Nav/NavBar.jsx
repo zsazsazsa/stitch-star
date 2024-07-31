@@ -8,29 +8,29 @@ export const NavBar = () => {
     return (
         <ul className="navbar">
             <li className="navbar-item">
-                <Link className="navbar-link" to="/projects">projects</Link>
-            </li>
-            {/* <li className="navbar-item">
-                <Link className="navbar-link" to="/favorites">favorites</Link>
-            </li> */}
-            <li className="navbar-item">
-                <Link className="navbar-link" to="/users">users</Link>
+                <Link className="navbar-link orange" to="/projects">*Projects</Link>
             </li>
             <li className="navbar-item">
-                <Link className="navbar-link" to="/profile">profile</Link>
+                <Link className="navbar-link pink" to="/favorites">*Favorites</Link>
+            </li>
+            <li className="navbar-item">
+                <Link className="navbar-link green" to="/users">*Users</Link>
+            </li>
+            <li className="navbar-item">
+                <Link className="navbar-link red" to="/profile">*Profile</Link>
             </li>
 
             {localStorage.getItem("stitch_user") ? (
                 <li className="navbar-item">
                     <Link
-                    className="navbar-link"
+                    className="navbar-link orange"
                     to=""
                     onClick={() => {
                         localStorage.removeItem("stitch_user")
                         navigate("/", {replace: true})
                     }}
                     >
-                        logout
+                        Logout*
                     </Link>
                 </li>
             ) : (

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { getAllCategories } from "../Services/CategoryService"
 
-export const CategorySelector = ({handleCategory}) => {
+export const CategorySelector = ({handleCategory, initialValue}) => {
     const [categories, setCategories] = useState([])
+    const [selectedCategory, setSelectedCategory] = useState(initialValue)
 
     useEffect(() => {
         getAllCategories().then((data) => {
@@ -10,9 +11,13 @@ export const CategorySelector = ({handleCategory}) => {
         })
     }, [])
 
+    useEffect(() => {
+        setSelectedCategory(initialValue)
+    }, [initialValue])
+
     return (
         <>
-        <select key="1" onChange={handleCategory}>
+        <select value={selectedCategory} onChange={handleCategory}>
             <option disabled selected>-</option>
             {categories.map(category => {
                 return (

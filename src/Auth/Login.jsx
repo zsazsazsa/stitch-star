@@ -31,7 +31,20 @@ export const Login = () => {
     <main className="container-login">
       <section>
         <form className="form-login" onSubmit={handleLogin}>
-          <h1><span className="star">E</span>stitchstar<span className="star">E</span></h1>
+          <h1 className="logo">
+            <span className="orange">S</span>
+            <span className="pink">t</span>
+            <span className="green">i</span>
+            <span className="red">t</span>
+            <span className="orange">c</span>
+            <span className="pink">h</span>
+
+            <span className="green">S</span>
+            <span className="red">t</span>
+            <span className="orange">a</span>
+            <span className="pink">r</span>
+            <span className="green">*</span>
+            </h1>
           <fieldset>
             <div className="form-group">
               <input
@@ -39,12 +52,17 @@ export const Login = () => {
                 value={email}
                 onChange={(evt) => set(evt.target.value)}
                 className="form-control"
-                placeholder="email address"
+                placeholder="Email Address"
                 required
                 autoFocus
               />
               <button className="login-btn" type="submit">
-                sign in
+                Sign In
+              </button>
+              <button className="login-btn" type="submit" onClick={() => {
+                navigate("/register")
+              }}>
+                Register Here
               </button>
             </div>
           </fieldset>

@@ -38,7 +38,7 @@ export const ApplicationViews = () => {
                     </Route>
                     <Route path=":projectId/edit" element={<EditProject />} />
                 </Route>
-                <Route path="favorites" element={<Favorites />} />
+                <Route path="favorites" element={<Favorites currentUser={currentUser}/>} />
                 <Route path="users" element={<Users currentUser={currentUser}/>} />
                 <Route path="profile">
                     <Route index element={<Profile currentUser={currentUser}/>} />

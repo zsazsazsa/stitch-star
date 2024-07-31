@@ -1,21 +1,22 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
 }
 
 .navbar {
     height: 100vh; /* Full height */
-    width: 150px; /* Set a width for the navbar */
+    width: 200px; /* Set a width for the navbar */
     position: fixed; /* Fix the navbar to the left side */
-    top: -16px;
+    top: -40px;
     left: 0;
-    background-color: black; /* Background color */
+    background-color: #f7ede2;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
+    padding-left: 0;
 }
 
 .navbar-item {
+    font-family: rainy_stars;
     list-style-type: none;
     padding: 8px 16px;
     letter-spacing: 4px;
@@ -23,10 +24,9 @@ body {
 
 .navbar-link {
     text-decoration: none;
-    color: #89CC04;
     display: block;
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 2px #84a59d;
 }
 
-.navbar-link:hover {
-    background-color: #575757;
-}
+

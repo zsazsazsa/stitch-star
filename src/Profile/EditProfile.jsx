@@ -39,7 +39,7 @@ export const EditProfile = ({currentUser}) => {
         <>
         <div className="profile-edit-container">
             <fieldset>
-                <label>name:</label>
+                <label>Name:</label>
                 <input 
                     type="text" 
                     value={user.name} 
@@ -47,7 +47,7 @@ export const EditProfile = ({currentUser}) => {
                     name="name"/>
             </fieldset>
             <fieldset>
-                <label>email:</label>
+                <label>Email:</label>
                 <input 
                     type="text" 
                     value={user.email} 
@@ -56,7 +56,7 @@ export const EditProfile = ({currentUser}) => {
             </fieldset>
         </div>
         <div className="btn-container">
-                <div className="save-btn" onClick={handleSave}>save</div>
+                <div className="save-btn" onClick={handleSave}>Save</div>
             </div>
         </>
     )

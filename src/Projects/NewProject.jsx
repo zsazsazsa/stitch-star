@@ -12,14 +12,8 @@ export const NewProject = ({currentUser}) => {
         userId: currentUser?.id,
         name: "",
         categoryId: 0,
-        link: ""
-    })
-
-    const [newSection, setNewSection] = useState({
-        projectId: 0,
-        totalRows: 0,
-        rowsCompleted: 0, 
-        complete: false
+        link: "",
+        img: ""
     })
 
     const [addNewSection, setAddNewSection] = useState(false)
@@ -42,7 +36,7 @@ export const NewProject = ({currentUser}) => {
             saveProject(newProject)
             setAddNewSection(true)
         } else {
-            alert("please fill out all fields")
+            alert("Please Fill Out All Fields")
         }
     }
 
@@ -50,25 +44,32 @@ export const NewProject = ({currentUser}) => {
         <>
         <div className="form-container">
             <fieldset className="project-name-input">
-                <label>project name:</label>
+                <label>Project Name:</label>
                 <input 
                     type="text"
                     onChange={handleInputChange}
                     name="name" />
             </fieldset>
             <fieldset className="category-selector">
-                <label>select category:</label>
+                <label>Select Category:</label>
                 <CategorySelector handleCategory={handleCategory}/>
             </fieldset>
             <fieldset className="project-link-input">
-                <label>project link:</label>
+                <label>Project Link:</label>
                 <input 
                     type="text"
                     onChange={handleInputChange}
                     name="link" />
             </fieldset>
+            <fieldset className="project-img-input">
+                <label>Project Image:</label>
+                <input 
+                    type="text"
+                    onChange={handleInputChange}
+                    name="img" />
+            </fieldset>
             <fieldset className="form-save">
-                {!addNewSection && (<button className="save-btn" onClick={handleSave}>add section</button>)}
+                {!addNewSection && (<button className="save-btn" onClick={handleSave}>Add Section</button>)}
             </fieldset>
         </div>
 

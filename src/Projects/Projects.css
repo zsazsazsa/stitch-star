@@ -1,5 +1,14 @@
+
+
 body {
     margin-left: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #84A59D;
+    font-size: 2rem;
+}
+
+h1, h3, .project-name {
+    font-family: rainy_stars;
 }
 
 .project-link {
@@ -8,16 +17,23 @@ body {
     width: 95%;
 }
 
-.projects-list, .form-container, .section-form-container, .project-view-container, .section-container {
-    border: 1px solid black;
+.projects-list, .form-container, .section-form-container, .project-view-container, .section-container , .section-container-complete{
+    border: 1px solid #84A59D;
     border-radius: 100px;
     padding: 50px;
     margin-bottom: 15px;
 }
 
-.section-container {
+.section-container, .section-container-complete {
     margin-top: 15px;
 }
+
+.section-container-complete {
+   background-color: #f7ede2;
+   color: #f28482;
+}
+
+
 
 .project-container {
     display: flex;
@@ -25,11 +41,12 @@ body {
 }
 
 .project {
-    border: 1px solid black;
+    border: 1px solid #84A59D;
     border-radius: 100px;
-    padding: 25px;
+    padding: 35px;
     margin: 10px 0;
     transition: font-size 0.2s ease-in-out;
+    background-color: rgba(247, 237, 226, 0.5);
 }
 
 .project:hover {
@@ -45,26 +62,32 @@ body {
     text-align: end;
 }
 
-.new-project-btn, .edit-btn, .delete-btn, .row-btn, .section-add-btn {
+.new-project-btn, .edit-btn, .delete-btn, .row-btn, .section-add-btn, .like-btn, .show-all-btn, .add-section-btn {
     margin-bottom: 15px;
     padding: 10px;
-    border: 2px solid #89CC04;
+    border: 2px solid #84A59D;
     border-radius: 100px;
-    background-color: black;
-    color: #89CC04;
+    background-color: #f5cac3;
+    color: #84A59D;
 }
 
-.new-project-btn:hover, .edit-btn:hover, .delete-btn:hover, .row-btn:hover, .section-add-btn:hover {
-    border: 2px solid black;
-    color: black;
-    background-color: #89CC04;
+.new-project-btn:hover, .edit-btn:hover, .delete-btn:hover, .row-btn:hover, .section-add-btn:hover, .like-btn:hover, .show-all-btn:hover, .add-section-btn:hover{
+    border: 2px solid #f5cac3;
+    color: #f5cac3;
+    background-color: #84A59D;
 }
 
 .button-container {
     text-align: center;
 }
 
-.project-btns {
+.selector-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.project-btns, .like-btn-container {
     margin-left: 15px;
     display: flex;
     flex-direction: column;
@@ -78,9 +101,42 @@ body {
 }
 
 a {
-    color: black;
+    color: #f28482;
 }
 
 .row-btn {
     margin-top: 15px;
 }
+
+
+.image {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
+
+.row-counter {
+    font-size: 1.5rem;
+}
+
+.show-all-btn {
+    height: 40px
+}
+
+p {
+    margin-bottom: 0;
+}
+
+h2, .project-number {
+    color: #f6bd60
+}
+
+.project-completion {
+    color: #f28482;
+}
+

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { getProjectToUpdate, updateProject } from "../Services/ProjectService"
-import { getSectionByProjectId, updateSection } from "../Services/SectionService"
+import { deleteProject, getAllProjects, getProjectToUpdate, updateProject } from "../Services/ProjectService"
+import { deleteSection, getSectionByProjectId, updateSection } from "../Services/SectionService"
 import { CategorySelector } from "../Categories/CategorySelector"
+import { NewSection } from "../Sections/NewSection"
 
 export const EditProject = () => {
 
@@ -12,6 +13,9 @@ export const EditProject = () => {
 
     const [project, setProject] = useState({})
     const [sections, setSections] = useState([])
+    const [projects, setProjects] = useState([])
+    const [triggerReRender, setTriggerReRender] = useState(false)
+    const [addNewSection, setAddNewSection] = useState(false)
 
     useEffect(() => {
         getProjectToUpdate(projectId).then(data => {
@@ -23,7 +27,13 @@ export const EditProject = () => {
         getSectionByProjectId(projectId).then(data => {
             setSections(data)
         })
-    }, [projectId])
+    }, [projectId, triggerReRender])
+
+    useEffect(() => {
+        getAllProjects().then(data => {
+            setProjects(data)
+        })
+    }, [])
 
     
     const handleInputChange = (e) => {
@@ -56,8 +66,23 @@ export const EditProject = () => {
     const handleSectionUpdate = (index) => {
 
         const sectionToUpdate = sections[index]
+        sectionToUpdate.complete = false
         updateSection(sectionToUpdate).then(() => {
             navigate(`/projects/${project.id}`)
+        })
+    }
+
+    const handleDelete = (e) => {
+        const projectToDelete = projects.find(project => project.id === parseInt(e.target.id));
+        deleteProject(projectToDelete.id).then(() => {
+            navigate("/projects")
+        });
+    };
+
+    const handleSectionDelete = (e) => {
+        const sectionToDelete = sections.find(section => section.id === parseInt(e.target.id))
+        deleteSection(sectionToDelete.id).then(() => {
+            setTriggerReRender(!triggerReRender)
         })
     }
     
@@ -65,7 +90,7 @@ export const EditProject = () => {
         <>
           <div className="form-container">
             <fieldset className="project-name-input">
-                <label>project name:</label>
+                <label>Project Name:</label>
                 <input 
                     type="text"
                     onChange={handleInputChange}
@@ -73,27 +98,37 @@ export const EditProject = () => {
                     value={project.name} />
             </fieldset>
             <fieldset className="category-selector">
-                <label>select category:</label>
-                <CategorySelector handleCategory={handleCategory}/>
+                <label>Select Category:</label>
+                <CategorySelector handleCategory={handleCategory} initialValue={project.categoryId}/>
             </fieldset>
             <fieldset className="project-link-input">
-                <label>project link:</label>
+                <label>Project Link:</label>
                 <input 
                     type="text"
                     onChange={handleInputChange}
                     name="link"
                     value={project.link} />
             </fieldset>
-            <fieldset className="form-save">
-                <button className="save-btn" onClick={handleProjectUpdate}>update project details</button>
+            <fieldset className="project-img-input">
+                <label>Project Image:</label>
+                <input 
+                    type="text"
+                    onChange={handleInputChange}
+                    name="img"
+                    value={project.img} />
             </fieldset>
+            <fieldset className="form-save">
+                <button className="save-btn" onClick={handleProjectUpdate}>Update Project Details</button>
+                <button className="delete-btn" id={project.id} onClick={handleDelete}>Delete Project</button>
+            </fieldset>
+
         </div>  
         <div className="form-container">
             {sections.map((section, index) => {
                 return (
                     <>
                         <fieldset className="section-name-input">
-                            <label>section name:</label>
+                            <label>Section Name:</label>
                             <input 
                                 type="text"
                                 onChange={(e) => handleSectionInputChange(e, index)}
@@ -101,7 +136,7 @@ export const EditProject = () => {
                                 value={section.sectionName} />
                         </fieldset>
                         <fieldset className="section-rows">
-                            <label>rows completed:</label>
+                            <label>Rows Completed:</label>
                             <input
                                 type="number"
                                 onChange={(e) => handleSectionInputChange(e, index)}
@@ -109,7 +144,7 @@ export const EditProject = () => {
                                 value={section.rowsCompleted} />
                         </fieldset>
                         <fieldset className="section-total">
-                            <label>total rows:</label>
+                            <label>Total Rows:</label>
                             <input
                                 type="number"
                                 onChange={(e) => handleSectionInputChange(e, index)}
@@ -117,12 +152,21 @@ export const EditProject = () => {
                                 value={section.totalRows} />
                         </fieldset>
                         <fieldset className="form-save">
-                            <button className="save-btn" onClick={() => handleSectionUpdate(index)}>update section details</button>
+                            <button className="save-btn" onClick={() => handleSectionUpdate(index)}>Update Section Details</button>
+                            <button className="delete-btn" onClick={handleSectionDelete} id={section.id}>Delete Section</button>
                         </fieldset>
                     </>
                 )
             })}
         </div>
+        <div className="button-container">
+            <button className="add-section-btn" onClick={() => {
+                setAddNewSection(true)
+            }}>Add Section</button>
+        </div>
+        {addNewSection && (
+           <NewSection newProject={project}/>
+        )}
         </>
     )
 }

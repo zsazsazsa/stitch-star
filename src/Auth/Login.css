@@ -1,10 +1,8 @@
-@font-face {
-    font-family: starz-2;
-    src: url(../assets/Starz-2.ttf)
-  }
 
-  .star {
-    font-family: starz-2;
+
+  .logo {
+    font-family: rainy_stars;
+    text-shadow: 3px 3px 2px #84a59d;
   }
 
   .container-login {
@@ -19,7 +17,7 @@
   }
 
   .form-group {
-    background-color: black;
+    background-color: #f7ede2;
     border: none;
     border-radius: 100px;
     margin-top: -100px;
@@ -30,18 +28,46 @@
 
   .login-btn {
     padding: 10px;
-    border: 2px solid #89CC04;
+    border: 2px solid #84a59d;
     border-radius: 100px;
-    background-color: black;
-    color: #89CC04;
+    background-color: #f5cac3;
+    color: #84a59d;
+  }
+
+  .login-btn:hover {
+    border: 2px solid #f5cac3;
+    background-color: #84a59d;
+    color: #f5cac3;
   }
 
   .form-control {
     border-radius: 100px;
     padding-left: 10px;
+    border: 1px solid #84a59d;
   }
 
   .form-login {
     text-align: center;
     margin-left: -200px;
+    
+  }
+
+  .orange {
+    color: #f6bd60
+  }
+
+  .pink {
+    color: #f5cac3
+  }
+
+  .green {
+    color: #84a59d
+  }
+
+  .red {
+    color: #f28482
+  }
+
+  h2 {
+    margin-bottom: 100px;
   }

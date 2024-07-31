@@ -1,9 +1,10 @@
 .profile-container, .profile-edit-container {
-    border: 1px solid black;
+    border: 1px solid #84A59D;
     border-radius: 100px;
-    padding: 25px;
+    padding: 30px;
     font-size: 40px;
     margin-top: 200px;
+    background-color: rgba(247, 237, 226, 0.5);
 }
 
 .edit-btn, .save-btn {
@@ -11,16 +12,16 @@
     text-align: center;
     margin-bottom: 15px;
     padding: 10px;
-    border: 2px solid #89CC04;
+    border: 2px solid #84A59D;
     border-radius: 100px;
-    background-color: black;
-    color: #89CC04;
+    background-color: #f5cac3;
+    color: #84A59D;
 }
 
 .edit-btn:hover, .save-btn:hover {
-    border: 2px solid black;
-    color: black;
-    background-color: #89CC04;
+    border: 2px solid #f5cac3;
+    color: #f5cac3;
+    background-color: #84A59D;
 }
 
 
@@ -31,4 +32,12 @@
 
 input {
     margin-left: 15px;
+}
+
+.profile-name {
+    color: #f6bd60
+}
+
+.profile-projects {
+    color: #f28482
 }

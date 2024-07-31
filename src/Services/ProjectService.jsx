@@ -11,7 +11,7 @@ export const getProjectToUpdate = (projectId) => {
 }
 
 export const getAllProjects = () => {
-    return fetch("http://localhost:8088/projects?_expand=user").then(res => res.json())
+    return fetch("http://localhost:8088/projects?_expand=user&_embed=projectLikes").then(res => res.json())
 }
 
 export const deleteProject = (projectId) => {
