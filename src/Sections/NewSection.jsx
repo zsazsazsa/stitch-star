@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { getAllProjects } from "../Services/ProjectService"
 
 
-export const NewSection = ({newProject}) => {
+export const NewSection = ({newProject, onSectionAdded}) => {
 
     const navigate = useNavigate()
 
@@ -18,7 +18,7 @@ export const NewSection = ({newProject}) => {
     }, [])
 
     useEffect(() => {
-        const foundProject = projects[projects.length - 1]
+        const foundProject = projects.find(project => project.id === newProject.id)
         setProjectToUpdate(foundProject)
     }, [newProject, projects])
 
@@ -63,6 +63,7 @@ export const NewSection = ({newProject}) => {
             saveSection(copy).then(() => {
                 alert("section saved. add another. click save on final section.")
                 setNewSection(initialSectionState)
+                onSectionAdded()
             })
             
         } else {

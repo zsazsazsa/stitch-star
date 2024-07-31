@@ -165,7 +165,7 @@ export const EditProject = () => {
             }}>Add Section</button>
         </div>
         {addNewSection && (
-           <NewSection newProject={project}/>
+           <NewSection newProject={project} onSectionAdded={() => setTriggerReRender(!triggerReRender)} />
         )}
         </>
     )
