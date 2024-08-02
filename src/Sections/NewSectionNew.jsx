@@ -5,7 +5,7 @@ import { getAllProjects } from "../Services/ProjectService"
 import { SectionList } from "./SectionList"
 
 
-export const NewSectionNew = ({newProject, onSectionAdded}) => {
+export const NewSectionNew = ({newProject}) => {
 
     const navigate = useNavigate()
 

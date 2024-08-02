@@ -3,12 +3,14 @@ import { getAllProjects } from "../Services/ProjectService";
 import { Link } from "react-router-dom";
 import { getAllLikes, saveLike } from "../Services/LikeService";
 import "./Users.css"
+import { UserSelector } from "./UserSelector";
 
 export const Users = ({ currentUser }) => {
   const [userProjects, setUserProjects] = useState([]);
   const [filteredProjects, setFilteredProjects] = useState([]);
   const [allLikes, setAllLikes] = useState([]);
   const [triggerReRender, setTriggerReRender] = useState(false)
+  const [users, setUsers] = useState([])
 
   useEffect(() => {
     getAllProjects().then((data) => {
@@ -40,7 +42,36 @@ export const Users = ({ currentUser }) => {
     setTriggerReRender(!triggerReRender)
   };
 
+  const handleUserChoice = (e) => {
+    const selectedUser = parseInt(e.target.value);
+    setUsers(selectedUser);
+    if (selectedUser) {
+        const filter = userProjects.filter(project => project.userId === selectedUser);
+        setFilteredProjects(filter);
+    } else {
+      const otherUsersProjects = userProjects.filter(
+        (project) => project.userId !== currentUser.id
+      );
+      setFilteredProjects(otherUsersProjects);
+    }
+};
+
+const handleShowAll = () => {
+  const otherUsersProjects = userProjects.filter(
+    (project) => project.userId !== currentUser.id
+  );
+  setFilteredProjects(otherUsersProjects);
+}
+
   return (
+    <>
+    <div className="selector-container">
+                <div>
+                    <p>Select a User:</p><UserSelector currentUser={currentUser} handleUserChoice={handleUserChoice}/>
+                </div>
+                <button className="show-all-btn" onClick={handleShowAll}>Show All</button>
+            </div>
+
     <div className="projects-list">
       {filteredProjects.map((project) => {
         const userLikedProject = allLikes.some(
@@ -68,5 +99,6 @@ export const Users = ({ currentUser }) => {
         );
       })}
     </div>
+    </>
   );
 };
