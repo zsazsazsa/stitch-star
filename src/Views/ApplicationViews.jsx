@@ -9,7 +9,6 @@ import { EditProfile } from "../Profile/EditProfile"
 import { NewProject } from "../Projects/NewProject"
 import { ProjectView } from "../Projects/ProjectView"
 import { EditProject } from "../Projects/EditProject"
-import { NewSectionNew } from "../Sections/NewSectionNew"
 
 
 export const ApplicationViews = () => {
@@ -35,7 +34,6 @@ export const ApplicationViews = () => {
                     <Route path=":projectId" element={<ProjectView currentUser={currentUser}/>} />
                     <Route path="new">
                         <Route index element={<NewProject currentUser={currentUser}/>} />
-                        <Route path="newSection" element={<NewSectionNew />} />
                     </Route>
                     <Route path=":projectId/edit" element={<EditProject />} />
                 </Route>

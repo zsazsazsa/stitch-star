@@ -1,17 +1,25 @@
 import { useEffect, useState } from "react"
-import { deleteLike, getAllLikes, getLikesByUser } from "../Services/LikeService"
+import { deleteLike, getLikesByUser } from "../Services/LikeService"
 import { Link } from "react-router-dom"
+import { CategorySelector } from "../Categories/CategorySelector"
 
 export const Favorites = ({currentUser}) => {
 
     const [likes, setLikes] = useState([])
     const [triggerReRender, setTriggerReRender] = useState(false)
+    const [category, setCategory] = useState(0)
+    const [filteredProjects, setFilteredProjects] = useState([])
 
     useEffect(() => {
         getLikesByUser(currentUser.id).then(data => {
             setLikes(data)
         })
     }, [currentUser, triggerReRender])
+
+    useEffect(() => {
+      setFilteredProjects(likes)
+  }, [likes])
+
 
     
     const handleUnLike = (e) => {
@@ -21,9 +29,31 @@ export const Favorites = ({currentUser}) => {
         })
     }
 
+    const handleCategory = (e) => {
+      const selectedCategory = parseInt(e.target.value);
+      setCategory(selectedCategory);
+      if (selectedCategory) {
+          const filter = likes.filter(like => like.project.categoryId === selectedCategory);
+          setFilteredProjects(filter);
+      } else {
+          setFilteredProjects(likes);
+      }
+  };
+
+  const handleShowAll = () => {
+    setFilteredProjects(likes)
+}
+
     return (
+      <>
+      <div className="selector-container">
+                <div>
+                    <p>Select a Category:</p><CategorySelector handleCategory={handleCategory}/>
+                </div>
+                <button className="show-all-btn" onClick={handleShowAll}>Show All</button>
+            </div>
         <div className="like-list">
-          {likes.map((like) => {
+          {filteredProjects.map((like) => {
             return (
               <div className="project-container" key={like.project.id}>
                 <Link to={`/projects/${like.project.id}`} className="project-link">
@@ -43,5 +73,6 @@ export const Favorites = ({currentUser}) => {
             );
           })}
         </div>
+        </>
       );
 }
