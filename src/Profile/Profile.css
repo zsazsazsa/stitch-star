@@ -5,6 +5,8 @@
     font-size: 40px;
     margin-top: 200px;
     background-color: rgba(247, 237, 226, 0.5);
+    outline: 3px dashed #f6bd60;
+    outline-offset: -10px;
 }
 
 .edit-btn, .save-btn {
