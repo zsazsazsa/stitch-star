@@ -9,6 +9,7 @@ import { EditProfile } from "../Profile/EditProfile"
 import { NewProject } from "../Projects/NewProject"
 import { ProjectView } from "../Projects/ProjectView"
 import { EditProject } from "../Projects/EditProject"
+import { Header } from "../Nav/Header"
 
 
 export const ApplicationViews = () => {
@@ -26,6 +27,7 @@ export const ApplicationViews = () => {
             <Route path="/" element={
                 <>
                     <NavBar />
+                    <Header />
                     <Outlet />
                 </>
             }>
