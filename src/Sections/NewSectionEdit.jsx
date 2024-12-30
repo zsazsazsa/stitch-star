@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import { saveSection } from "../Services/SectionService"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { getAllProjects } from "../Services/ProjectService"
 
 
 export const NewSectionEdit = ({newProject, onSectionAdded}) => {
 
     const navigate = useNavigate()
+
 
     const [projects, setProjects] = useState([])
     const [projectToUpdate, setProjectToUpdate] = useState({})
@@ -46,7 +47,7 @@ export const NewSectionEdit = ({newProject, onSectionAdded}) => {
             copy.projectId = projectToUpdate.id
 
             saveSection(copy).then(() => {
-            navigate("/projects")
+            navigate(`/projects/${projectToUpdate.id}`)
         })
         } else {
             alert("please fill out all fields")
