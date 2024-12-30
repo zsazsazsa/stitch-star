@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom"
-import { Authorized } from "./Views/Authorized"
 import { Login } from "./Auth/Login"
 import { ApplicationViews } from "./Views/ApplicationViews"
 import "./App.css"
 import { Register } from "./Auth/Register"
+import { Authorized } from "./Views/Authorized"
 
 export const App = () => {
   return (
