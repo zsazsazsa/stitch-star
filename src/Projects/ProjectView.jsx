@@ -84,7 +84,8 @@ export const ProjectView = ({currentUser}) => {
                             </div>
                             ) : (
                                 <div className="section-container-complete">
-                                    <h3>Complete*</h3>
+                                    <h3>{section.sectionName} Complete*</h3>
+                                    
                                 </div>
                             )}
                                 
