@@ -13,8 +13,10 @@ export const Projects = ({ currentUser }) => {
 
     useEffect(() => {
         getProjectsByUserId(currentUser.id).then((data) => {
-            setProjects(data);
-            setProgress(calculateSectionProgress(data));
+            // Sort projects by id in descending order
+            const sortedProjects = data.sort((a, b) => b.id - a.id);
+            setProjects(sortedProjects);
+            setProgress(calculateSectionProgress(sortedProjects));
         });
     }, [currentUser]);
 
